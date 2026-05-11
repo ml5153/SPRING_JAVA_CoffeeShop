@@ -26,16 +26,17 @@ public enum CommonError {
     // -- 0000:  --
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR,"0000","서버 내부 오류가 발생했습니다."),
 
+
     // -- 1000: MEMBER --
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "1000", "존재하지 않는 계정입니다."),
     INSUFFICIENT_BALANCE(HttpStatus.BAD_REQUEST, "1001", "잔액부족입니다."),
+    CONFLICT_REQUEST(HttpStatus.CONFLICT, "1002", "요청이 충돌했습니다. 다시 시도해주세요."),
 
     // -- 2000: MENU --
     CUSTOMER_NOT_FOUND(HttpStatus.BAD_REQUEST,"2000","존재하지 않는 메뉴입니다."),
 
     // -- 3000: ORDER --
     ORDER_NOT_FOUND(HttpStatus.NOT_FOUND, "3000", "존재하지 않는 주문입니다.");
-
 
 
 
