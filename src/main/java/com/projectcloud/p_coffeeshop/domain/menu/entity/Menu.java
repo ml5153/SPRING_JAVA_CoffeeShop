@@ -1,7 +1,9 @@
 package com.projectcloud.p_coffeeshop.domain.menu.entity;
 
+import com.projectcloud.p_coffeeshop.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +11,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "menus")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Menu {
+public class Menu extends BaseEntity {
+
+    @Builder
+    private Menu(String name, Long price) {
+        this.name = name;
+        this.price = price;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

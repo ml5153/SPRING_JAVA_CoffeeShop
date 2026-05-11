@@ -5,6 +5,7 @@ import com.projectcloud.p_coffeeshop.global.error.CommonError;
 import com.projectcloud.p_coffeeshop.global.error.CommonException;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,12 +15,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseEntity {
 
+    @Builder
+    private Member(Long balance) {
+        this.balance = balance;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private Long balance;
+
+    @Version
+    private Long version;
 
     public void charge(long amount) {
         this.balance += amount;
